@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>saved foods</h1>
+    {% if foodinstance_list %}
+    <ul>
+        {% for foodinst in foodinstance_list %}
+        <a href="{% url 'food-detail' foodinst.food.pk %}">{{ foodinst.food.name }}</a> 
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+        <p>there are no foods saved</p>
+        {% endif %}
+{% endblock %}
