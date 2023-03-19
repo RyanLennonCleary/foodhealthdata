@@ -71,7 +71,7 @@ class FoodInstance(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4)
     fdc_id = models.ForeignKey(Food, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField()
-    date = models.DateField(default=date.today)
+    date_eaten = models.DateField(default=date.today)
     meal = models.PositiveIntegerField(default=0)
     class Meta:
         permissions = (("can_remove_foodinstance", "remove food"),)

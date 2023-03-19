@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{%block content%}
+<h1>Planner</h1>
+<form method="POST" action="{% url 'planner' %}">
+    {% csrf_token %}
+{% if calcium %}
+<ul>
+<p> calcium: {{calcium_amt }}</p>
+{% for c in calcium %}
+<li> <input type="submit" value="{{ c.name }}" name="calcium"> {{c.calcium}}
+    <input type="hidden"value="{{c.fdc_id}}" name="fdc_id">
+</li> 
+
+{% endfor %}
+{% else %}
+<p> no calciums </p>
+{% endif %}
+</ul>
+{% endblock %}

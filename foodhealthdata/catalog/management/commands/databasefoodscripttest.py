@@ -46,7 +46,6 @@ class Command(BaseCommand):
             #print(combined.index[combined['fdc_id']==row['fdc_id']])
         def modifyCombined():
             combined = pd.read_csv('/Users/Ryan1/foodhealthdata/foodhealthdata/combined.csv',index_col='fdc_id')
-            print(combined)
 
             new_dict = {'description':'name','1221': 'histidine','1212':'isoleucine','1213':'leucine','1214':'lysine','1215':'methionine','1217':'phenylalanine','1211':'threonine','1210':'tryptophan','1219':'valine','1087':'calcium','1092':'potassium','1103':'selenium','1101':'manganese','1090':'magnesium','1102':'molybdenum','1089':'iron','1095':'zinc','1098':'copper','1096':'chromium','1100':'iodine','1091':'phsophorous','1093':'sodium','1177':'folate','1166':'riboflavin','1106':'vitaminA','1165':'thiamin','1170':'pantothenicAcid','1167':'niacin','1176':'biotin','1180':'choline','1175':'vitaminB6','1178':'vitaminB12','1158':'vitaminE','1185':'vitaminK','1162':'vitaminC'}
 
@@ -58,7 +57,6 @@ class Command(BaseCommand):
             combined['servingSize']=100
             combined['servingSizeUnits']='G'
             combined = combined.astype(object).where(combined.notna(),None)
-            print(combined)
             return combined
 
 
@@ -68,4 +66,3 @@ class Command(BaseCommand):
                 food.save()
         combined = modifyCombined()
         createFoods(combined)
-        print(combined)

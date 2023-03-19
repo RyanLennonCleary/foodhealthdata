@@ -2,9 +2,6 @@
 {% block content %}
 <h1>Food View</h1>
 
-<a href="{{ food.get_absolute_url }}">{{ food.name }}</a> ({{food.fdc_id}})
-<p>{{ food.name}}</p>
-
 
 {% for f,v in food.get_fields %}
 
